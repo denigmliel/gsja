@@ -1,12 +1,18 @@
 import vinext from "vinext";
 import { nitro } from "nitro/vite";
 import { defineConfig } from "vite";
-import hostingConfig from "./.openai/hosting.json";
+import { existsSync, readFileSync } from "node:fs";
 import { sites } from "./build/sites-vite-plugin";
 
 const SITE_CREATOR_PLACEHOLDER_DATABASE_ID =
   "00000000-0000-4000-8000-000000000000";
 
+// GitHub/Vercel checkouts need no Sites identity or resource bindings.
+// Preserve configured bindings when running an existing Sites checkout.
+const hostingPath = new URL("./.openai/hosting.json", import.meta.url);
+const hostingConfig: { d1?: string; r2?: string } = existsSync(hostingPath)
+  ? JSON.parse(readFileSync(hostingPath, "utf8"))
+  : {};
 const { d1, r2 } = hostingConfig;
 
 // macOS Seatbelt blocks FSEvents, so Codex previews need polling for HMR.
