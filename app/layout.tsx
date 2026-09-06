@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   ),
   title: "GSJA CiTi | Welcome Home",
   description:
-    "Temukan jadwal ibadah, komunitas, pelayanan, dan layanan doa GSJA CiTi.",
+    "GSJA CiTi di Ciputat Timur, Tangerang Selatan. Ibadah Umum setiap Minggu 10.00 WIB dan Youth 19.00 WIB. Gembala Parsaoran Pasaribu, S.Th., M.PdK.",
   keywords: [
     "GSJA CiTi",
     "GSJA",

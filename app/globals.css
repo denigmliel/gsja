@@ -102,7 +102,7 @@ img {
   background: transparent;
   border-bottom: 0;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto;
   height: 5.75rem;
   padding: 0 4vw;
   position: fixed;
@@ -116,6 +116,16 @@ img {
 .site-header.is-hidden {
   transform: translateY(-110%);
 }
+
+.site-header { gap: 2rem; }
+.site-header.is-solid { background: var(--ink); box-shadow: 0 1px 0 rgba(255,255,255,.15); }
+.site-header .desktop-nav { color: var(--white); }
+.site-header .desktop-nav a { font-size: .875rem; text-transform: none; letter-spacing: .02em; }
+.site-header .desktop-nav a::after { background: currentColor; }
+.site-header .menu-button span { background: var(--white); }
+.mobile-menu { visibility: hidden; }
+.mobile-menu.is-open { visibility: visible; overflow-y: auto; }
+a:focus-visible, button:focus-visible { outline: 3px solid #a7c5ed; outline-offset: 5px; }
 
 .brand {
   align-items: center;
@@ -629,6 +639,22 @@ img {
 .welcome-stats strong { font-family: var(--serif); font-size: clamp(3rem, 6vw, 5.8rem); font-weight: 400; line-height: 0.8; }
 .welcome-stats span { color: #657067; font-size: 0.64rem; font-weight: 800; letter-spacing: 0.1em; padding-bottom: 0.25rem; text-transform: uppercase; }
 
+.welcome-stats div { align-items: flex-start; flex-direction: column; gap: 1.2rem; }
+.welcome-stats strong { font-size: clamp(2.5rem, 4.5vw, 4.5rem); line-height: 1; }
+.welcome-stats span { font-size: .875rem; line-height: 1.5; }
+.pastor-note h3 { font-size: clamp(1.4rem, 2.2vw, 2rem); line-height: 1.4; }
+.pastor-note .eyebrow { color: var(--lime); }
+.visit-card { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(2rem, 5vw, 5rem); background: var(--ink); color: var(--white); }
+.visit-card .eyebrow { color: var(--lime); }
+.visit-card h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 1.1; margin: 2rem 0; }
+.visit-card h3 em { color: var(--lime); }
+.visit-card p { font-size: 1rem; line-height: 1.7; margin: 0 0 2rem; }
+.campus-details .service-row { grid-template-columns: 1fr; gap: .65rem; }
+.campus-details .service-row span, .campus-details .service-row strong { font-size: 1rem; }
+.campus-details .campus-address { font-size: 1rem; }
+.hero h1 { line-height: 1.02; }
+.welcome h2, .section-heading-row h2, .community-content h2, .prayer h2, .faq h2 { line-height: 1.06; }
+
 .vision-section {
   background: var(--ink);
   color: var(--white);
@@ -1076,6 +1102,25 @@ footer { background: #101813; color: var(--white); padding: 5rem 5vw 0; }
   .faq-list article > div > p { padding-left: 2.7rem; padding-right: 1rem; }
   footer { padding-left: 6vw; padding-right: 6vw; }
   .footer-links { grid-template-columns: 1fr 1fr; }
+}
+
+/* Readable visitor information and headings across desktop and mobile. */
+.hero h1, .welcome h2, .section-heading-row h2,
+.community-content h2, .prayer h2, .faq h2 { line-height: 1.06; }
+.eyebrow, .section-label, .hero-kicker, .button, .underline-link,
+.header-cta, .hero-service-card span, .hero-service-card small,
+.prayer-form label > span { font-size: .875rem; }
+.welcome-copy p, .vision-block p, .section-heading-row > p,
+.ministry-content p, .community-content p, .prayer > div > p,
+.footer-contact p { font-size: 1rem; }
+.hero { min-height: 100svh; }
+.highlight-card:not(.active) { visibility: hidden; }
+.prayer-form input::placeholder, .prayer-form textarea::placeholder { color: rgba(255,255,255,.65); }
+.prayer-form label > span { color: rgba(255,255,255,.85); }
+@media (max-width: 560px) {
+  .welcome-stats div { align-items: flex-start; flex-direction: column; }
+  .hero-content { padding-top: 8rem; padding-bottom: 14rem; }
+  .site-header { gap: 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
